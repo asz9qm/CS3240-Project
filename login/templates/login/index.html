@@ -1,0 +1,17 @@
+{% load socialaccount %}
+{% providers_media_js %}
+
+<html>
+    <head>
+        <title>Google Registration</title>
+    </head>
+    <body>
+    {% if request.user.is_authenticated %}
+        Hello {{ request.user.username }},
+    <a href="{% url 'account_logout' %}">Logout?</a>
+    {% else %}
+        Hi guest!
+    <button><a href="{% provider_login_url 'google' %}">Google Login</a></button>
+    {% endif %}
+    </body>
+</html>
