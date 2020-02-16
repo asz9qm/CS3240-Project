@@ -3,7 +3,7 @@ from django.views import generic
 from django.http import HttpResponse
 
 
-class IndexView(generic.DetailView):
-    def get(self, request):
-        return HttpResponse("This is the index, essentially the home page of the website")
+# class IndexView(generic.DetailView):
+    # def get(self, request):
+    #     return HttpResponse("This is the index, essentially the home page of the website")
 
