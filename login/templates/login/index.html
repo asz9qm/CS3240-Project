@@ -4,14 +4,29 @@
 <html>
     <head>
         <title>Google Registration</title>
+          <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <!-- Font Awesome CSS -->
+        <script src="https://kit.fontawesome.com/595acf0be0.js" crossorigin="anonymous"></script>
     </head>
     <body>
     {% if request.user.is_authenticated %}
         Hello {{ request.user.username }},
     <a href="{% url 'account_logout' %}">Logout?</a>
     {% else %}
-        Hi guest!
-    <button><a href="{% provider_login_url 'google' %}">Google Login</a></button>
+        <br>
+        <br>
+        <div class = "card" style = "width: 18rem;">
+        <div>
+            <p class="card-text">Not a member of quicktHOOter?</p>
+            <a href="#" class="btn btn-primary btn-lg">Signup</a>
+        </div>
+        <div>
+            <p>--OR--</p>
+            <p class="card-text">Log into your account</p>
+            <a href="{% provider_login_url 'google' %}" class="btn btn-danger btn-lg"><i class="fab fa-google"></i>   Continue</a>
+        </div>
+        </div>
     {% endif %}
     </body>
 </html>
