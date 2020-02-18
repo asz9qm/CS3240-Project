@@ -49,6 +49,9 @@ INSTALLED_APPS = [
 
     # specifies provider:
     'allauth.socialaccount.providers.google',
+
+    # payments
+    'payments.apps.PaymentsConfig',
 ]
 
 MIDDLEWARE = [
@@ -158,3 +161,5 @@ SOCIALACCOUNT_PROVIDERS = {
 
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
+STRIPE_SECRET_KEY = 'sk_test_ALolSlccjW13vkO414UGD6e200xnJkVGhH'
+STRIPE_PUBLISHABLE_KEY = 'pk_test_qBsO9bCKqvUW9ZbY5bClNx1Z00a7RfZRz2'
