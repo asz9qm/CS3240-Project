@@ -41,12 +41,11 @@ INSTALLED_APPS = [
     # local
     'login',
 
-    # The following apps are required:
+    # The following apps are required for all-auth:
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-
     # specifies provider:
     'allauth.socialaccount.providers.google',
 ]
@@ -156,5 +155,11 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
+
+#AUTH_USER_MODEL = 'users.CustomUser'
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
+SOCIALACCOUNT_AUTO_SIGNUP = False
+#SOCIALACCOUNT_FORMS = {'signup': 'login.forms.MyCustomSocialSignupForm'}
+#ACCOUNT_SIGNUP_FORM_CLASS = 'login.forms.SignupForm'
+SOCIALACCOUNT_STORE_TOKENS =True
