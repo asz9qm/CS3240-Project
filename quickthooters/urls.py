@@ -24,4 +24,5 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('maps', TemplateView.as_view(template_name="maps/map.html"), name = "maps"),
     path('payments/', include('payments.urls')),
+    path('testing', TemplateView.as_view(template_name="main/sidebar.html"))
 ]
