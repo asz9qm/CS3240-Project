@@ -48,6 +48,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     # specifies provider:
     'allauth.socialaccount.providers.google',
+
+    # payments
+    'payments.apps.PaymentsConfig',
 ]
 
 MIDDLEWARE = [
@@ -129,8 +132,7 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
-
+# https://docs.djangoproject.com/en/1.9/howto/static-files/
 STATIC_URL = '/static/'
 
 # Django all auth settings
@@ -163,3 +165,5 @@ SOCIALACCOUNT_AUTO_SIGNUP = False
 #SOCIALACCOUNT_FORMS = {'signup': 'login.forms.MyCustomSocialSignupForm'}
 #ACCOUNT_SIGNUP_FORM_CLASS = 'login.forms.SignupForm'
 SOCIALACCOUNT_STORE_TOKENS =True
+STRIPE_SECRET_KEY = 'sk_test_ALolSlccjW13vkO414UGD6e200xnJkVGhH'
+STRIPE_PUBLISHABLE_KEY = 'pk_test_qBsO9bCKqvUW9ZbY5bClNx1Z00a7RfZRz2'
