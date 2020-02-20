@@ -2,6 +2,10 @@
 {% load socialaccount %}
 {% providers_media_js %}
 
+<!-- The home page contains a log in/sign up button. If the user is not already signed in, clicking on this will display
+ a login/signup option. Login is done with Google authentication. Sign up also requires Google authentication, and
+ filling out a form of extra information to create and store the user in the database. -->
+
 <html>
     <head>
         <title>Google Registration</title>
@@ -15,17 +19,13 @@
     {% if request.user.is_authenticated %}
         Hello {{ request.user.username }},
     <a href="{% url 'account_logout' %}">Logout?</a>
+
     {% else %}
         <br>
         <br>
         <div class = "card border-0" style = "width: 18rem;">
         <div>
-            <p class="card-text-signup">Not a member of quicktHOOter?</p>
-            <a href="#" class="btn btn-primary btn-lg">Signup</a>
-        </div>
-        <div>
-            <p class="or">--OR--</p>
-            <p class="card-text-login">Log into your account</p>
+            <p class="card-text-login">Log in!</p>
             <a href="{% provider_login_url 'google' %}" class="btn btn-danger btn-lg"><i class="fab fa-google"></i>   Continue</a>
         </div>
         </div>

@@ -1,8 +1,11 @@
 language: python
-python:
-  - "3.6"     
+python:   
   - "3.7"
   - "3.8"
 install:
-  - pip install -r requirements.txt
-script: python manage.py test
+  - pip install -r requirements-travis.txt
+script: python3 manage.py test
+deploy:
+  provider: heroku
+  api_key: 027deb56-50c4-47c3-891f-5e73f29df39c
+  on: master

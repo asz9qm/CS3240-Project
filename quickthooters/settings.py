@@ -41,14 +41,16 @@ INSTALLED_APPS = [
     # local
     'login',
 
-    # The following apps are required:
+    # The following apps are required for all-auth:
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-
     # specifies provider:
     'allauth.socialaccount.providers.google',
+
+    # payments
+    'payments.apps.PaymentsConfig',
 ]
 
 MIDDLEWARE = [
@@ -66,7 +68,7 @@ ROOT_URLCONF = 'quickthooters.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'main/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -130,9 +132,13 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
-
+# https://docs.djangoproject.com/en/1.9/howto/static-files/
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'main/static')
+]
 
 # Django all auth settings
 AUTHENTICATION_BACKENDS = (
@@ -156,5 +162,13 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
+
+#AUTH_USER_MODEL = 'users.CustomUser'
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
+SOCIALACCOUNT_AUTO_SIGNUP = False
+#SOCIALACCOUNT_FORMS = {'signup': 'login.forms.MyCustomSocialSignupForm'}
+#ACCOUNT_SIGNUP_FORM_CLASS = 'login.forms.SignupForm'
+SOCIALACCOUNT_STORE_TOKENS =True
+STRIPE_SECRET_KEY = 'sk_test_ALolSlccjW13vkO414UGD6e200xnJkVGhH'
+STRIPE_PUBLISHABLE_KEY = 'pk_test_qBsO9bCKqvUW9ZbY5bClNx1Z00a7RfZRz2'
