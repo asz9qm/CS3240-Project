@@ -1,3 +1,5 @@
+{% extends 'main/sidebar.html' %}
+{% block content%}
 {% load static %}
 {% load socialaccount %}
 {% providers_media_js %}
@@ -32,3 +34,5 @@
     {% endif %}
     </body>
 </html>
+
+{% endblock %}

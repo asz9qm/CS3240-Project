@@ -1,0 +1,18 @@
+{% extends 'main/sidebar.html' %}
+{% block content%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+</head>
+
+<body>
+    <h1>Fill out your user profile!</h1>
+    <form method="POST" action="{% url 'login:make_profile' %}">
+        {% csrf_token %}
+        {{ profile_form.as_p }}
+        <input type="submit" value="Create Profile">
+    </form>
+</body>
+</html>
+{% endblock %}

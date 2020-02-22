@@ -1,0 +1,20 @@
+{% extends 'main/sidebar.html' %}
+{% block content%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+</head>
+
+<body>
+    <h1>User Profile</h1>
+    <form method="GET" action="{% url 'login:display_profile' %}">
+        {% csrf_token %}
+        <p>Name: {{ user.first_name }}  {{ user.last_name }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>Major: {{ user.profile.major }}</p>
+        <p>Year: {{ user.profile.year }}</p>
+    </form>
+</body>
+</html>
+{% endblock %}
