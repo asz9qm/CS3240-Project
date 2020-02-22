@@ -15,7 +15,7 @@ def make_profile(request):
             form.save()
             return redirect('/')
     else:
-        form = UserProfileForm({'user': request.user})  # UserProfileForm(instance=request.user.profile)
+        form = UserProfileForm({'user': request.user}) # form = UserProfileForm({'user': request.user})  # UserProfileForm(instance=request.user.profile)
 
     context = {'profile_form': form}
     return render(request, 'login/blank_profile.html', context)

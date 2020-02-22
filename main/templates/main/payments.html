@@ -1,3 +1,5 @@
+{% extends 'main/sidebar.html' %}
+{% block content %}
 <h2>Pay for Session</h2>
 <form action="{% url 'charge' %}" method="post">
     {% csrf_token %}
@@ -8,3 +10,4 @@
     data-locale="auto">
 </script>
 </form>
+{% endblock %}
