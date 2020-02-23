@@ -9,12 +9,11 @@ Django==2.2.5
 django-cors-middleware==1.4.0
 django-crispy-forms==1.7.2
 django-heroku==0.3.1
-django-oauth-toolkit==1.2.0
 gunicorn==19.9.0
 idna==2.8
 importlib-metadata==0.23
 more-itertools==7.2.0
-allauth==0.41.0
+django-allauth>=0.27.0
 packaging==19.2
 pluggy==0.13.0
 psycopg2==2.8.3
