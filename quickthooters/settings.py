@@ -94,8 +94,15 @@ WSGI_APPLICATION = 'quickthooters.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'TEST': {
+            'NAME': 'test_db',
+        },
+        'USER': 'postgres',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -173,3 +180,11 @@ SOCIALACCOUNT_STORE_TOKENS =True
 STRIPE_SECRET_KEY = 'sk_test_ALolSlccjW13vkO414UGD6e200xnJkVGhH'
 STRIPE_PUBLISHABLE_KEY = 'pk_test_qBsO9bCKqvUW9ZbY5bClNx1Z00a7RfZRz2'
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False
+
+# Activate Django-Heroku.
+try:
+    # Configure Django App for Heroku.
+    import django_heroku
+    django_heroku.settings(locals())
+except ImportError:
+    found = False
