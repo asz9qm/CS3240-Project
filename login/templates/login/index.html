@@ -1,8 +1,10 @@
 {% extends 'main/sidebar.html' %}
+
 {% block content%}
 {% load static %}
 {% load socialaccount %}
 {% providers_media_js %}
+
 
 <!-- The home page contains a log in/sign up button. If the user is not already signed in, clicking on this will display
  a login/signup option. Login is done with Google authentication. Sign up also requires Google authentication, and
@@ -12,10 +14,6 @@
     <head>
         <title>Google Registration</title>
         <link rel="stylesheet" href="{% static '/css/login.css' %}">
-          <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <!-- Font Awesome CSS -->
-        <script src="https://kit.fontawesome.com/595acf0be0.js" crossorigin="anonymous"></script>
     </head>
     <body>
     {% if request.user.is_authenticated %}
@@ -34,5 +32,13 @@
     {% endif %}
     </body>
 </html>
+  <script>
+  // document ready event is fired when DOM has been loaded
+  $(document).ready(function() {
+	 // do DOM manipulation, set header's height
+     $('.header').height($(window).height()/2.5);
+   })
+  </script>
+
 
 {% endblock %}
