@@ -1,51 +1,5 @@
 {% extends 'main/sidebar.html' %}
-<html>
-<head>
-  <meta charset="UTF-8">  
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="Alan Zhai">
-  <meta name="description" content="Creating a main page">  
-    
-  <title>Homepage</title>
-  
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-      
-</head>
 
-<body>  
-
-    <header>
-        <nav class="navbar navbar-expand-md navbar-light bg-light">
-            <a class="navbar-brand" href="#">QT4</a>
-      
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-             
-            <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">   
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">About</a>
-                </li>              
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
-                  <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="#">Tutors</a>
-                    <a class="dropdown-item" href="#">Students</a>
-                    <a class="dropdown-item" href="#">Learning</a>
-                 </div>
-                </li>                            
-                <li class="nav-item"> 
-                  <a class="nav-link" href="#">Contact</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Resources</a>
-                </li>            
-              </ul>
-            </div>  
-          </nav>
-    </header>
-    
     {% block content%}
     <!-- jumbotron -->
     <div class="jumbotron">
@@ -61,10 +15,6 @@
         
         
     </div>
-
-    <!-- <div class="header container-fluid">
-
-    </div> -->
 
     <div class = "container">
         <div class = "row">
@@ -89,15 +39,11 @@
     </div>
 
   <script>
-  // document ready event is fired when DOM has been loaded 
+  // document ready event is fired when DOM has been loaded
   $(document).ready(function() {
 	 // do DOM manipulation, set header's height
-     $('.header').height($(window).height()/2.5);     
+     $('.header').height($(window).height()/2.5);
    })
-  </script> 
- 
-  
-  
-</body>
+  </script>
+
 {% endblock %}
-</html>
