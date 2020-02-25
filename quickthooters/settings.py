@@ -92,6 +92,22 @@ WSGI_APPLICATION = 'quickthooters.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         # 'ENGINE': 'django.db.backends.postgresql',
+#         # 'NAME': 'postgres',
+#         # # 'TEST': {
+#         # #     'NAME': 'test_db',
+#         # # },
+#         # # 'USER': 'postgres',
+#         # # 'PASSWORD': 'password',
+#         # 'HOST': '127.0.0.1',
+#         # 'PORT': '5432',
+#     }
+# }
+# Database
+# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -164,15 +180,15 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-LOGIN_REDIRECT_URL = '/'
-#AUTH_USER_MODEL = 'users.CustomUser'
 SITE_ID = 1
 SOCIALACCOUNT_AUTO_SIGNUP = True
-#ACCOUNT_SIGNUP_FORM_CLASS = 'login.forms.UserProfileForm'
+LOGIN_URL='login/'
+LOGIN_REDIRECT_URL='/'
 SOCIALACCOUNT_STORE_TOKENS =True
 STRIPE_SECRET_KEY = 'sk_test_ALolSlccjW13vkO414UGD6e200xnJkVGhH'
 STRIPE_PUBLISHABLE_KEY = 'pk_test_qBsO9bCKqvUW9ZbY5bClNx1Z00a7RfZRz2'
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False
+ACCOUNT_LOGOUT_ON_GET = True
 
 # Activate Django-Heroku.
 try:
