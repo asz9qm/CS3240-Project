@@ -16,11 +16,9 @@
         <link rel="stylesheet" href="{% static '/css/login.css' %}">
     </head>
     <body>
-    {% if request.user.is_authenticated %}
-        Hello {{ request.user.username }},
-    <a href="{% url 'account_logout' %}">Logout?</a>
 
-    {% else %}
+    <!--{% if request.user.is_authenticated %}-->
+    <!--{% else %}-->
         <br>
         <br>
         <div class = "card border-0" style = "width: 18rem;">
@@ -29,7 +27,7 @@
             <a href="{% provider_login_url 'google' %}" class="btn btn-danger btn-lg"><i class="fab fa-google"></i>   Continue</a>
         </div>
         </div>
-    {% endif %}
+    <!--{% endif %}-->
     </body>
 </html>
 
