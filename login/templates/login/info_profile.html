@@ -1,13 +1,7 @@
 {% extends 'main/sidebar.html' %}
+{% load crispy_forms_tags %}
 {% block content%}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>User Profile</title>
-</head>
 
-<body>
-    <h1>User Profile</h1>
     <form method="GET" action="{% url 'login:display_profile' %}">
         {% csrf_token %}
         <p>Name: {{ user.first_name }}  {{ user.last_name }}</p>
@@ -15,8 +9,8 @@
         <p>Major: {{ user.profile.major }}</p>
         <p>Year: {{ user.profile.year }}</p>
     </form>
-    <a href="{% url 'account_logout' %}">Logout?</a>
-</body>
-</html>
+
+    <button class="btn btn-outline-info" type="submit"><a href="{% url 'account_logout' %}">Logout?</a></button>
+
 {% endblock %}
 

@@ -1,8 +1,8 @@
-from .forms import UserProfileForm
-from django.contrib.auth.models import User
-from django.shortcuts import render
-from django.shortcuts import redirect
+from .forms import UserProfileForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
 from .models import Profile
 
 
@@ -19,6 +19,7 @@ def make_profile(request):
 
         if form.is_valid():
             form.save()
+            messages.success(request, f'Your account has been created !')
             return redirect('/')
     else:
         form = UserProfileForm({'user': request.user})
@@ -31,3 +32,24 @@ def make_profile(request):
 def display_profile(request):
     args = {'user': request.user}
     return render(request, 'login/info_profile.html', args)
+
+
+@login_required
+def update_profile(request):
+    if request.method == 'POST':
+        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        if p_form.is_valid():
+            p_form.save()
+            messages.success(request, f'Your account has been updated !')
+            return redirect('/')
+
+    else:
+        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        
+    context = { 
+        'p_form': p_form
+    }
+
+    return render(request, 'login/update_profile.html', context)
+
+
