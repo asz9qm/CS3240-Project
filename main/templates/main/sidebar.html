@@ -28,8 +28,8 @@
         <!-- Sidebar Holder -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3><a class="navbar-brand" href="{% url 'login:display_profile' %}"><i class="fas fa-user-circle fa-4x"></i></a></h3>
-                <h2>Your Name</h2>
+                  <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" height="150" width="150">
+                <h2>{{ user.first_name }}</h2>
             </div>
 
 
@@ -63,6 +63,9 @@
                                 <!--<a href="{% url 'account_logout' %}">Logout?</a>-->
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'login:display_profile' %}">My Profile</a>
+                                </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'login:update_profile' %}">Update</a>
                                 </li>
                             {% else %}
                                 <li class="nav-item">
