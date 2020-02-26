@@ -10,3 +10,7 @@
 .card-text-login {
     margin-left: 50px;
 }
+
+.logout {
+    text-transform: lowercase;
+}
