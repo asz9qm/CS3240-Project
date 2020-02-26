@@ -1,15 +1,17 @@
 .card {
-    margin-left: 400px;
-    margin-top:200px;
+    text-align: center;
+    display: inline-block;
+    /* margin-left: 400px;
+    margin-top:200px; */
  }
 
 .btn-lg {
    width:85%;
 }
 
-.card-text-login {
+/* .card-text-login {
     margin-left: 50px;
-}
+} */
 
 .logout {
     text-transform: lowercase;
