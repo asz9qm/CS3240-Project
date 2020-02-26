@@ -1,6 +1,9 @@
 {% extends 'main/sidebar.html' %}
-
+{% load static %}
     {% block content%}
+    <head>
+        <link rel="stylesheet"type = "text/css" href="{% static '/main/rating.css' %}">
+    </head>
     <!-- jumbotron -->
     <div class="jumbotron">
             <h1 class="display-4">Hello, Everyone</h1>
@@ -12,7 +15,7 @@
     </div>
 
     <div class = "container">
-        <div class = "row">
+        <div class = "row text-center">
             <div class="col-md-4">
                 <h3> Tutoring</h3>
                 <p> Come here to learn more about Tutoring</p>
@@ -32,6 +35,53 @@
 
         </div>
     </div>
+
+    <body name="ratings">
+        <div class="container">
+            
+            <div class="row text-center">										
+                            <div class="col-sm-6 col-md-4">																		
+                                <div class="testimonial-box">							
+                                    <img src="{% static '/main/AaronBloomfield.jpg' %}" class="img-responsive" alt="" width="90">
+                                    <div class="ratings-icons">
+                                        ★★★★★
+                                    </div>
+                                    <h4>Aaron Bloomfield</h4>
+                                    <p>Easy money as so many students need help with 2150 even though it's an easy course
+                                    </p>									 							
+                                    
+                                </div>					
+                            </div> <!-- End Col -->								
+                            
+                            <div class="col-sm-6 col-md-4">																		
+                                <div class="testimonial-box">							
+                                    <img src="{% static '/main/Deer.jpg' %}" class="img-responsive" alt="" width="90">
+                                    <div class="ratings-icons">
+                                        ★★★★★
+                                    </div>
+                                    <h4>John Deer</h4>
+                                    <p>English tutor great. Website easy use. Inexpensive tutoring. Would recommend.</p>									 							
+                                    
+                                </div>					
+                            </div> <!-- End Col -->								
+                            
+                            <div class="col-sm-6 col-md-4">																		
+                                <div class="testimonial-box">
+                                    <img src="{% static '/main/JimRyan.jpg' %}" class="img-responsive" alt="" width="90">
+                                    <div class="ratings-icons">
+                                        ★★★★★
+                                    </div>
+                                    <h4>Jim Ryan</h4>
+                                    <p>This was an easy and effective way to learn from many students about their needs.</p>									 							
+                                    
+                                </div>					
+                            </div> <!-- End Col -->								
+                                            
+                        
+                        </div>
+        </div>
+        
+        </body>
 
   <!--<script>-->
   <!--// document ready event is fired when DOM has been loaded-->
