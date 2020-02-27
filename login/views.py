@@ -41,7 +41,7 @@ def update_profile(request):
         if p_form.is_valid():
             p_form.save()
             messages.success(request, f'Your account has been updated !')
-            return redirect('/')
+            return redirect('login:display_profile')
 
     else:
         p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
@@ -51,5 +51,3 @@ def update_profile(request):
     }
 
     return render(request, 'login/update_profile.html', context)
-
-
