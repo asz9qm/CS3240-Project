@@ -9,8 +9,12 @@
         <p>Major: {{ user.profile.major }}</p>
         <p>Year: {{ user.profile.year }}</p>
     </form>
-
-    <button class="btn btn-outline-info" type="submit"><a href="{% url 'account_logout' %}">Logout?</a></button>
+    {% if user.profile %}
+        <button class="btn btn-outline-primary" type="submit"><a href="{% url 'login:update_profile' %}">Update Profile</a></button>
+        <br>
+        <br>
+    {% endif %}
+    <button class="btn btn-outline-danger" type="submit"><a href="{% url 'account_logout' %}">Logout?</a></button>
 
 {% endblock %}
 
