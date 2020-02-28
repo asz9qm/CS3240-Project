@@ -1,30 +1,38 @@
+{% load static %}
+{% block content %}
 <!DOCTYPE html>
 <html>
   <head>
     <title>Geolocation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet"type = "text/css" href="{% static '/main/map.css' %}">
+     <!-- Font Awesome JS -->
+     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+   
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
   </head>
   <body>
+
+    <div class="row h-100">
+      <div class="col-sm-12 my-auto">
+      <div class="card text-center" style="width: 40rem;">
+        <div class="card-body">
+          <h5 class="card-title">Get help from nearby tutors!</h5>
+          <p class="card-text">Search subjects, classes, or specific topics to be matched with a student expert at a nearby hub who can help you learn!</p>
+          <form class="form-inline" id="searchBar">
+              <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="I need help with..."aria-label="Search"><i class="fas fa-search"></i></span>
+            </form>
+        </div>
+      </div>
+      </div>
+    </div>
+  
+    <!-- Right Side -->
+    <!-- Map -->
     <div id="map"></div>
     <script>
-      // Note: This example requires that you consent to location sharing when
-      // prompted by your browser. If you see the error "The Geolocation service
-      // failed.", it means you probably did not give permission for the browser to
-      // locate you.
       var map, infoWindow, point;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
@@ -107,4 +115,6 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBock4grM-hbhdq4zI7JKL4E1MQRec3Dcc&callback=initMap">
     </script>
   </body>
-</html>
+  </html>
+
+  {% endblock %}

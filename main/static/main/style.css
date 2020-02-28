@@ -45,20 +45,6 @@ a, a:hover, a:focus {
     margin: 40px 0;
 }
 
-
-.footer {
-    position: fixed;
-    bottom: 0;
-    width: 10%;
-    height: 200px;
-    background-color: black;
-    padding-left: 300px;
-    padding-top: 15px;
-    overflow:hidden; /*Add this*/
-    clear:both;
-}
-
-
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
