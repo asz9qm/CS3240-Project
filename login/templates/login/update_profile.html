@@ -9,8 +9,9 @@
     		{{ p_form | crispy }}
     	</fieldset>
     	<div class="form-group">
-    		<button class="btn btn-outline-info" type="submit">Update</button>
-    	</div>
+			<button class="btn btn-outline-info" type="submit">Update</button>
+		</div>
+		<button class="btn btn-outline-danger"><a href="{% url 'login:display_profile' %}">Cancel</a></button>
     </form>
 
 {% endblock %}
