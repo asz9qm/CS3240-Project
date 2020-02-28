@@ -47,13 +47,44 @@
             // infoWindow.open(map);
             map.setCenter(pos);
 
-            //the marker on the map
             var marker = new google.maps.Marker({
             position: pos,
             map: map,
             title: 'Current Location'
             });
 
+            image = {
+              url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/University_of_Virginia_Rotunda_logo.svg/235px-University_of_Virginia_Rotunda_logo.svg.png',
+              scaledSize: new google.maps.Size(25, 25),
+              // origin: new google.maps.Point(0,0), // origin
+              // anchor: new google.maps.Point(0, 0) // anchor
+            }
+            var ClemMarker = new google.maps.Marker({
+              position: {lat: 38.036374, lng: -78.506092},
+              icon: image,
+              map: map,
+            });
+            var AldyMarker = new google.maps.Marker({
+              position: {lat: 38.036466, lng: -78.505370},
+              icon: image,
+              map: map,
+            });
+            var RiceMarker = new google.maps.Marker({
+              position: {lat: 38.031729, lng: -78.510914},
+              icon: image,
+              map: map,
+            });
+            var ClarkMarker = new google.maps.Marker({
+              position: {lat: 38.033159, lng: -78.507850},
+              icon: image,
+              map: map,
+            });
+            var ClarkMarker = new google.maps.Marker({
+              position: {lat:  38.035212, lng: -78.500458},
+              icon: image,
+              map: map,
+            });
+        
           }, function() {
             handleLocationError(true, marker, map.getCenter());
           });
@@ -62,6 +93,7 @@
           handleLocationError(false, marker, map.getCenter());
         }
       }
+
 
       function handleLocationError(browserHasGeolocation, marker, pos) {
         marker.setPosition(pos);
