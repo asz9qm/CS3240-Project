@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'login',
 
     # The following apps are required for all-auth:
-    'django.contrib.sites',
+    #'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
