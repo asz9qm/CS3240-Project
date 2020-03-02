@@ -52,6 +52,9 @@ INSTALLED_APPS = [
     # payments
     'payments.apps.PaymentsConfig',
     'crispy_forms',
+
+    'ratings',
+    
 ]
 
 MIDDLEWARE = [
