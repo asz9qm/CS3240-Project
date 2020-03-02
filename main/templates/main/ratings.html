@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% extends 'main/sidebar.html' %}
+{% block content %}
+<html>
+<head>
+<!-- Font Awesome Icon Library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+.checked {
+    color: gold; 
+}
+</style>
+</head>
+
+<body>
+<span onmouseover="starmark(this)" onclick="starmark(this)" id="1one" style="font-size:40px;cursor:pointer;"  class="fa fa-star checked"></span>
+<span onmouseover="starmark(this)" onclick="starmark(this)" id="2one"  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
+<span onmouseover="starmark(this)" onclick="starmark(this)" id="3one"  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
+<span onmouseover="starmark(this)" onclick="starmark(this)" id="4one"  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
+<span onmouseover="starmark(this)" onclick="starmark(this)" id="5one"  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
+<br/>
+<textarea  style="resize:none" style="margin-top:5px;" class="form-control" rows="3" id="comment" placeholder="Any other thoughts?"></textarea>
+<button  onclick="result()" type="button" style="margin-top:10px;margin-left:5px;" class="btn btn-lg btn-success">Submit</button>
+</body>
+
+<script>
+var count;
+
+function starmark(item) {
+    count=item.id[0];
+    sessionStorage.starRating = count;
+    var subid= item.id.substring(1);
+    for(var i=0;i<5;i++) {
+        if(i<count) {
+            document.getElementById((i+1)+subid).style.color="gold";
+        }
+        else {
+            document.getElementById((i+1)+subid).style.color="black";
+        }
+    }
+}
+
+function result() {
+//rating - count
+//review text = id("comment")
+alert("Rating : "+count+"\nReview : "+document.getElementById("comment").value);
+}
+</script>
+</html>
+{% endblock %}

@@ -18,7 +18,7 @@ class HomePageView(TemplateView):
 def charge(request): # new
     if request.method == 'POST':
         charge = stripe.Charge.create(
-            amount=500,
+            amount=250,
             currency='usd',
             description='A Django charge',
             source=request.POST['stripeToken']
