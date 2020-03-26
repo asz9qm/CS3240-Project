@@ -176,6 +176,11 @@ AUTHENTICATION_BACKENDS = (
 )
 
 
+
+
+SITE_ID = 6
+LOGIN_REDIRECT_URL='/'
+
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'SCOPE': [
@@ -183,16 +188,14 @@ SOCIALACCOUNT_PROVIDERS = {
             'email',
         ],
         'AUTH_PARAMS': {
-            'access_type': 'offline',
+            'access_type': 'online',
         }
     }
 }
 
-SITE_ID = 1
-SOCIALACCOUNT_AUTO_SIGNUP = True
-LOGIN_URL='login/'
-LOGIN_REDIRECT_URL='/'
 SOCIALACCOUNT_STORE_TOKENS =True
+SOCIALACCOUNT_AUTO_SIGNUP = True
+
 STRIPE_SECRET_KEY = 'sk_test_ALolSlccjW13vkO414UGD6e200xnJkVGhH'
 STRIPE_PUBLISHABLE_KEY = 'pk_test_qBsO9bCKqvUW9ZbY5bClNx1Z00a7RfZRz2'
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False
