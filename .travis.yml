@@ -1,19 +1,20 @@
 language: python
-python:   
-  - '3.8'
+python:
+- '3.8'
 install:
-  - pip install -r requirements-travis.txt
+- pip install -r requirements-travis.txt
 before_script:
 - psql -c 'create database travis_ci_test;' -U postgres
+script:
+- python manage.py makemigrations
+- python manage.py migrate
+- python manage.py test
 services:
 - postgresql
-script: 
-  - python manage.py makemigrations
-  - python manage.py migrate
-  - python manage.py test
 deploy:
   provider: heroku
-  api_key: 027deb56-50c4-47c3-891f-5e73f29df39c
+  api_key:
+    secure: MH6i3wx+26ZBrXMGP/mTgC+bQ21iksJHNM/KSY6by/By1Qf5/0eoszCnVSyrhW2n+rE9c7cd99kv28tdlbxs6Fw4X+v21X7PaYPfog4sJc2obOwpQajLmx/WvsaFT9qUtNvl24PxEidEKNBK2ZcrYIvrVslc+irUnPaPtFbPmxpyBG0te+ySgljAmgDljfAv2XK0f6XY4clcyxDWuEF7Ag0smTO13ew6zaW+vT/TpXLCxnOEQ5sg+PEatwcuPjdXKnY0xIt89R0uefvPpL3nQYRruMI9YgfK0fZbzPbQkuGKPlAhCjoycb83Vacds9hjuEY97Sxer4pasiIX5dWhDp5SxxMQqaj5X3J4kGBnRYY6QRjwuPG5E9rwbSZdD/WMRzZS4yzBmwx2FsWdYqVEv+43ldBs8SzTVT201Q3h7qjveht+NrXF12aneVZskvwloyZYlIaO8iSRLh9kAlcqaRf1zUkNGTz1syaS+bz5VHJx45lzugLJaSetZZ4wj/pixDOtKg6ncopDICG/7+yIKKSBL7UTt0SNewq+n5dZhN3oX+0CWptEjJjuXLIMlyjKRT2qZD/HghpOAcIc3GYM54UW2DBPIInLI0UR5o7wf3r+dhFhbubO4sKFnM8wZycXCFiIJrv2J8tfY2mFlxPt9fThrDp8LvmadZX0G+Re/fc=
   app: quick-thooters
   on:
     repo: uva-cs3240-s20/project-102-quickthooters

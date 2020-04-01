@@ -21,6 +21,7 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     path('login/', (include('login.urls', namespace="login"))),
+    path('request/', (include('request.urls', namespace="request"))),
     path('', include('main.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
@@ -28,6 +29,7 @@ urlpatterns = [
     path('payments/', include('payments.urls')),
     path('ratings/', include('ratings.urls')),
     path('sendemail/', (include('send_email.urls', namespace="send_email"))),
+
 ] 
 
 
