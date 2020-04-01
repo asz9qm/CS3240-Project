@@ -28,7 +28,12 @@ urlpatterns = [
     path('maps', TemplateView.as_view(template_name="maps/map.html"), name = "maps"),
     path('payments/', include('payments.urls')),
     path('ratings/', include('ratings.urls')),
+<<<<<<< HEAD
     
+=======
+    path('sendemail/', (include('send_email.urls', namespace="send_email"))),
+
+>>>>>>> db884877e35327c3eadbe7abcb62d2702e8d20c7
 ] 
 
 
