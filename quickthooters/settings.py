@@ -51,6 +51,7 @@ INSTALLED_APPS = [
 
     # payments
     'payments.apps.PaymentsConfig',
+    'send_email.apps.SendEmailConfig',
     'crispy_forms',
 
     'ratings',
@@ -208,3 +209,11 @@ try:
     django_heroku.settings(locals(), test_runner=False)
 except ImportError:
     found = False
+
+
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'quickthooters@gmail.com'
+EMAIL_HOST_PASSWORD = 'qt4qt4qt4'
