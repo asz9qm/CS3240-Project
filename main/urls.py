@@ -4,5 +4,6 @@ from . import views
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name="main/main.html"))
+    path('', TemplateView.as_view(template_name="main/main.html")),
+    path('choice', TemplateView.as_view(template_name="main/choicePage.html"))
 ]

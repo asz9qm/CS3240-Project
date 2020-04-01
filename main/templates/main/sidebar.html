@@ -19,7 +19,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
 </head>
-
+    {% block sidebar %}
     <!-- Only display User Profile Sidebar if User is authenticated -->
     {% if request.user.is_authenticated %}
     <body>
@@ -41,7 +41,7 @@
                     <a href="#">My Study Sessions</a>
                 </li>
                  <li>
-                    <a href="#">My Wallet</a>
+                    <a href="/payments">My Wallet</a>
                 </li>
                 {% endif %}
             </ul>
@@ -79,6 +79,7 @@
                     </div>
                 <!-- </div> -->
             </nav>
+            {% endblock %}
             {% block content %}
             {% endblock %}            
         </div>

@@ -21,11 +21,14 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     path('login/', (include('login.urls', namespace="login"))),
+    path('request/', (include('request.urls', namespace="request"))),
     path('', include('main.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('maps', TemplateView.as_view(template_name="maps/map.html"), name = "maps"),
     path('payments/', include('payments.urls')),
+    path('ratings/', include('ratings.urls')),
+    
 ] 
 
 

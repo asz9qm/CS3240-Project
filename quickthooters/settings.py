@@ -52,6 +52,10 @@ INSTALLED_APPS = [
     # payments
     'payments.apps.PaymentsConfig',
     'crispy_forms',
+
+    'ratings',
+    'request',
+    
 ]
 
 MIDDLEWARE = [
@@ -93,28 +97,28 @@ WSGI_APPLICATION = 'quickthooters.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         # 'ENGINE': 'django.db.backends.postgresql',
-#         # 'NAME': 'postgres',
-#         # # 'TEST': {
-#         # #     'NAME': 'test_db',
-#         # # },
-#         # # 'USER': 'postgres',
-#         # # 'PASSWORD': 'password',
-#         # 'HOST': '127.0.0.1',
-#         # 'PORT': '5432',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'TEST': {
+            'NAME': 'test_db',
+        },
+        'USER': 'postgres',
+        'PASSWORD': 'password',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
+}
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 
 # Password validation
@@ -173,6 +177,13 @@ AUTHENTICATION_BACKENDS = (
 )
 
 
+
+
+
+SITE_ID = 3
+
+LOGIN_REDIRECT_URL='/'
+
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'SCOPE': [
@@ -180,16 +191,14 @@ SOCIALACCOUNT_PROVIDERS = {
             'email',
         ],
         'AUTH_PARAMS': {
-            'access_type': 'offline',
+            'access_type': 'online',
         }
     }
 }
 
-SITE_ID = 1
-SOCIALACCOUNT_AUTO_SIGNUP = True
-LOGIN_URL='login/'
-LOGIN_REDIRECT_URL='/'
 SOCIALACCOUNT_STORE_TOKENS =True
+SOCIALACCOUNT_AUTO_SIGNUP = True
+
 STRIPE_SECRET_KEY = 'sk_test_ALolSlccjW13vkO414UGD6e200xnJkVGhH'
 STRIPE_PUBLISHABLE_KEY = 'pk_test_qBsO9bCKqvUW9ZbY5bClNx1Z00a7RfZRz2'
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False
@@ -199,6 +208,6 @@ ACCOUNT_LOGOUT_ON_GET = True
 try:
     # Configure Django App for Heroku.
     import django_heroku
-    django_heroku.settings(locals())
+    django_heroku.settings(locals(), test_runner=False)
 except ImportError:
     found = False
