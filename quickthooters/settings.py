@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'crispy_forms',
 
     'ratings',
+    'request',
     
 ]
 
@@ -178,7 +179,9 @@ AUTHENTICATION_BACKENDS = (
 
 
 
-SITE_ID = 1
+
+SITE_ID = 3
+
 LOGIN_REDIRECT_URL='/'
 
 SOCIALACCOUNT_PROVIDERS = {
