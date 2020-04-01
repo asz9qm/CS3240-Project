@@ -1,0 +1,19 @@
+{% block request %}
+    <h2>Requests</h2>
+    <ul>
+        {% for request in object_list %}
+            
+            <li>Subject: {{ request.subject }} <br/>
+                Location: {{ request.location }} <br/>
+                <a href="{% url 'request:Requests' request.id %}"><button>More Details</button></a>
+                
+            </li>
+        {% endfor %}
+    </ul>
+    <div>
+
+</div>   
+
+    
+    
+{% endblock %}
