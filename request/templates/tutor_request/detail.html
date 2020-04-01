@@ -1,0 +1,9 @@
+<h3>Tutoring Request</h3>
+{% csrf_token %}
+
+<div>Subject: {{ request.subject }}</div>
+<div>Location: {{ request.location }}</div>
+<div>Specifics: {{request.specific}}</div>
+<a href="{% url 'request:accept' pk=request.id %}"><button>Accept</button></a>
+
+
