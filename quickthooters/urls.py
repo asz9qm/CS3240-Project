@@ -1,5 +1,4 @@
 """quickthooters URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
 Examples:
@@ -30,7 +29,7 @@ urlpatterns = [
     path('ratings/', include('ratings.urls')),
     path('sendemail/', (include('send_email.urls', namespace="send_email"))),
 
-] 
+]
 
 
 
