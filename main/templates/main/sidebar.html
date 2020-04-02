@@ -38,6 +38,9 @@
                     <a href="{% url 'login:display_profile' %}">My Profile</a>
                 </li>
                 <li>
+                    <a href="{% url 'request:RequestList' %}">Request(s) History</a>
+                </li>
+                <li>
                     <a href="#">My Study Sessions</a>
                 </li>
                  <li>
@@ -64,7 +67,7 @@
                         <ul class="nav navbar-nav ml-auto">
                              {% if request.user.is_authenticated %}
                                 <!--<a href="{% url 'account_logout' %}">Logout?</a>-->
-                                {% if user.Profile %}
+                                {% if user.Profile.major != '' %}
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'login:display_profile' %}">My Profile</a>
                                 </li>
@@ -85,9 +88,9 @@
                     </div>
                 <!-- </div> -->
             </nav>
-            {% endblock %}
-            {% block content %}
-            {% endblock %}            
+            {% endblock %} 
+            {% block content%}
+            {% endblock %}          
         </div>
     </div>
  

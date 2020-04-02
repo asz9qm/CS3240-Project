@@ -5,7 +5,10 @@
         <link rel="stylesheet"type = "text/css" href="{% static '/main/rating.css' %}">
     </head>
     <!-- jumbotron -->
-    <div class="jumbotron">
+  
+
+    <body name="ratings">
+          <div class="jumbotron">
             <h1 class="display-4">Hello, Everyone</h1>
             <p class="lead">
                 Thanks for visiting this website!
@@ -14,29 +17,22 @@
         
     </div>
 
+    {% if request.user.is_authenticated %}
     <div class = "container">
         <div class = "row text-center">
             <div class="col-md-6">
                 <h3> Tutoring</h3>
-                <a href="/request/list"><button>Get Started</button></a>
+                <a href="/request/allrequests/"><button>Get Started</button></a>
             </div>
 
             <div class="col-md-6">
                 <h3> Students </h3>
-                <a href="/request"><button>Get Started</button></a>
+                <a href="{% url 'request:get_Request' %}"><button>Get Started</button></a>
             </div>
-
-            <!-- <div class="col-md-4">
-              <h3> Get Started Here </h3>   
-              <a href="/choice"><button>Get Started</button></a>           
-              
-          </div>           -->
-            
+    {% endif %}
 
         </div>
     </div>
-
-    <body name="ratings">
         <div class="container">
             
             <div class="row text-center">										

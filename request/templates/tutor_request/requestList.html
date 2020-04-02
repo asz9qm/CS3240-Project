@@ -1,19 +1,16 @@
-{% block request %}
-    <h2>Requests</h2>
+{% extends 'main/sidebar.html' %}
+
+{% block content %}
+    <h2>My Requests</h2>
     <ul>
-        {% for request in object_list %}
-            
+        {% for request in requests %}
             <li>Subject: {{ request.subject }} <br/>
-                Location: {{ request.location }} <br/>
-                <a href="{% url 'request:Requests' request.id %}"><button>More Details</button></a>
-                
+                Location: {{ request.location }} <br/> 
+                Date: {{ request.date }} <br/>
             </li>
         {% endfor %}
     </ul>
     <div>
 
-</div>   
-
-    
-    
+</div>      
 {% endblock %}
