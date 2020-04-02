@@ -9,7 +9,7 @@ from .models import Profile
 def display_login(request):
     context = {}
     return render(request, 'login/index.html', context)
-    # return redirect('/login/')
+
 
 
 @login_required

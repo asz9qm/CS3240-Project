@@ -12,17 +12,9 @@ from quickthooters import settings
 from django.contrib import messages
 
 
-class RequestView(generic.CreateView):
-    model = Request
-    fields = ('subject', 'location', 'specific')
-    template_name = 'tutor_request/request.html'
-
-class RequestList(generic.ListView):
-    model = Request
-    template_name = 'tutor_request/requestList.html'
-
 def get_Request(request):
     if request.method == "POST":
+        author = request.user
         form = RequestForm(request.POST)
         post = form.save(commit=False)
         post.save()
@@ -33,26 +25,39 @@ def get_Request(request):
         
         
         if (email == 1):
-            message = "Confirmation email sent !"
+            messages.success(request, f'A confirmation Email was sent !')
         else:
-            message = "Unable to send confirmation email ! call support..."
+            messages.success(request, f'Unable to send confirmation Email, please contact support !')
 
-        return HttpResponse(message)
+        return redirect('/')
         
     else:
         form = RequestForm()
+        return render(request, 'tutor_request/fill_form.html', {'form': form})
 
-    return render(request, 'tutor_request/request.html', {'form': form})
+def  request_list(request):
+    context = {
 
-class DetailView(generic.DetailView):
-    model = Request
-    template_name = 'tutor_request/detail.html'
-   
+        'requests': Request.objects.all().filter(author=request.user)
 
-class Accept(DeleteView):
-    model = Request
-    success_url = ("/../..")
-    template_name = 'tutor_request/accept.html'
+        }
+
+    return render(request, 'tutor_request/requestList.html', context)
+
+
+def all_requests(request):
+        context = {
+
+            'requests' : Request.objects.all()
+        }
+
+        return render(request,'tutor_request/request.html', context)
+
+
+
+
+
+
 
 
 

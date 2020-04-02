@@ -7,7 +7,6 @@ app_name = 'request'
 
 urlpatterns = [
     path('', views.get_Request, name='get_Request'),
-    path('list', views.RequestList.as_view(), name = 'RequestList' ),
-    path('3/<int:pk>/', views.DetailView.as_view(), name='Requests'),
-    path('accept/<int:pk>/', views.Accept.as_view(), name="accept"),
+    path('list/', views.request_list, name = 'RequestList' ),
+    path('allrequests/', views.all_requests, name='Requests'),
 ]

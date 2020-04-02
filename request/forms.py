@@ -4,4 +4,4 @@ from .models import Request
 class RequestForm(forms.ModelForm):
     class Meta:
         model = Request
-        fields = ('subject', 'location', 'specific')
+        fields = ('subject', 'location', 'specific','author')
