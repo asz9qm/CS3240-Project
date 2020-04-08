@@ -46,10 +46,22 @@ def  request_list(request):
 
 
 def all_requests(request):
+
+    if request.method == "POST":
+
+        subject = "QuickThooters"
+        message = "Hi " + request.user.username + ", Your tutoring request has been Accepted !"
+        to = request.user.email
+        email = send_mail(subject, message, settings.EMAIL_HOST_USER, [to])
+
+        return redirect('/')
+
+    else:
+    
         context = {
 
-            'requests' : Request.objects.all()
-        }
+                'requests' : Request.objects.all()
+         }
 
         return render(request,'tutor_request/request.html', context)
 
