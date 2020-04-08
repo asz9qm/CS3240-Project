@@ -1,21 +1,24 @@
 {% extends 'main/sidebar.html' %}
-{% load static%}
+{% load static %}
 {% load crispy_forms_tags %}
 
 {% block content %}
 
     <h2>All Available Requests</h2>
-    <ul>
-        {% for request in requests %}
-            <li>Subject: {{ request.subject }} <br/>
-                Location: {{ request.location }} <br/> 
-                Date: {{ request.specific }} <br/>
-            </li>
-        {% endfor %}
-    </ul>
-    <div>
+    <hr class="style5">
+    {% for request in requests %}
+            <form method="post">
+               {% csrf_token %}
+                    <h4>Subject: {{ request.subject }}</h4>
+                    <h5>Location: {{ request.location }}</h5>
+                    <p>Specific: {{ request.specific }}</p>
+                    <button class="btn btn-outline-info" type="submit">Accept</button> 
+            </form>
+            <hr class="style5">
+    {% endfor %}
+    
+    
 
-</div>      
 {% endblock %}
 
   

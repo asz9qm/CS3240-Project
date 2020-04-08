@@ -2,14 +2,13 @@
 
 {% block content %}
     <h2>My Requests</h2>
-    <ul>
+        <hr class="style5">
         {% for request in requests %}
-            <li>Subject: {{ request.subject }} <br/>
-                Location: {{ request.location }} <br/> 
-                Date: {{ request.date }} <br/>
-            </li>
+             <h4>Subject: {{ request.subject }}</h4>
+             <h5>Location: {{ request.location }}</h5>
+             <p>Date: {{ request.date }}</p>
+             <hr class="style5">
         {% endfor %}
-    </ul>
     <div>
 
 </div>      
