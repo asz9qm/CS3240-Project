@@ -16,11 +16,13 @@ def display_login(request):
 def make_profile(request):
     if request.method == "POST":
         form = UserProfileForm(request.POST)
-
-        if form.is_valid():
-            form.save()
-            messages.success(request, f'Your account has been created !')
-            return redirect('/')
+        post = form.save(commit=False)
+        post.user = request.user
+        post.save()
+        #if form.is_valid():
+           # form.save()
+        messages.success(request, f'Your account has been created !')
+        return redirect('/')
     else:
         form = UserProfileForm({'user': request.user})
 

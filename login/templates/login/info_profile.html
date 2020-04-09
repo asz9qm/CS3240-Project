@@ -4,10 +4,13 @@
 
     <form method="GET" action="{% url 'login:display_profile' %}">
         {% csrf_token %}
-        <p>Name: {{ user.first_name }}  {{ user.last_name }}</p>
-        <p>Email: {{ user.email }}</p>
-        <p>Major: {{ user.profile.major }}</p>
-        <p>Year: {{ user.profile.year }}</p>
+
+        <div class="card-body">
+            <h5 class="card-title">Name: {{ user.first_name }}  {{ user.last_name }}</h5>
+             <p class="card-text">Email: {{ user.email }}</p>
+             <p class="card-text">Major: {{ user.profile.major }}</p>
+             <p class="card-text">Year: {{ user.profile.year }}</p>
+        </div>
     </form>
     {% if user.profile %}
         <button class="btn btn-outline-primary" type="submit"><a href="{% url 'login:update_profile' %}">Update Profile</a></button>
