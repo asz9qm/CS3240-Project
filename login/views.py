@@ -22,7 +22,7 @@ def make_profile(request):
         #if form.is_valid():
            # form.save()
         messages.success(request, f'Your account has been created !')
-        return redirect('/')
+        return redirect('login:display_profile')
     else:
         form = UserProfileForm({'user': request.user})
 
