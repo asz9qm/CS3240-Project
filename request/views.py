@@ -1,4 +1,4 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.utils import timezone
 from django.core.paginator import Paginator
 from .models import Request
@@ -25,13 +25,14 @@ def get_Request(request):
         
     else:
         form = RequestForm({'author':request.user})
-        return render(request, 'tutor_request/fill_form.html', {'form': form})
+        return render(request, 'tutor_request/request-new.html', {'form': form})
 
 
 class RequestListHistoryView(ListView):
     model = Request
-    template_name = 'tutor_request/requestList.html'
+    template_name = 'tutor_request/request-list-history.html'
     context_object_name = 'requests'
+    ordering = ['-date']
     paginate_by = 3
 
     def get_queryset(self):
@@ -40,17 +41,28 @@ class RequestListHistoryView(ListView):
 
 class RequestListView(ListView):
         model = Request
-        template_name = 'tutor_request/request.html'
+        template_name = 'tutor_request/request-list.html'
         context_object_name = 'requests'
+        ordering = ['-date']
         paginate_by = 3
+
 
         def post(self,request):
             subject = "QuickThooters"
-            message = "Hi " + self.request.user.username + ", Your tutoring request has been Accepted !"
-            to = self.request.user.email
+            message = "Hi " + request.user.username + ", Your tutoring request has been Accepted !"
+            to = request.user.email
             email = send_mail(subject, message, settings.EMAIL_HOST_USER, [to])
             return render(self.request, 'tutor_request/confirmation2.html')
 
+class RequestDetailView(DetailView):
+    model = Request
+    template_name = 'tutor_request/request-detail.html'
+
+
+class RequestDeleteView(DeleteView):
+    model = Request
+    template_name = 'tutor_request/request-delete.html'
+    success_url = '/'
 
 
 

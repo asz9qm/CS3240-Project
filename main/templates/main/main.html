@@ -18,10 +18,10 @@
                 <div class = "container">
                     <div class = "row text-center">
                      <div class="col-md-6">
-                     <button class="btn btn-danger btn-lg"><a href="{% url 'request:Requests' %}">Start Tutoring!</a></button>
+                     <button class="btn btn-danger btn-lg"><a href="{% url 'request:request-list' %}">Start Tutoring!</a></button>
                 </div>
                     <div class="col-md-3">
-                    <button class="btn btn-primary btn-lg"><a href="{% url 'request:get_Request' %}">Start Learning!</a></button>
+                    <button class="btn btn-primary btn-lg"><a href="{% url 'request:request-new' %}">Start Learning!</a></button>
                 </div>
            
             {% else %}
