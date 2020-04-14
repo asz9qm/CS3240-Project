@@ -7,6 +7,8 @@
              <h4>Subject: {{ request.subject }}</h4>
              <h5>Location: {{ request.location }}</h5>
              <p>Date: {{ request.date }}</p>
+             <button class="btn btn-outline-primary"><a href="{% url 'request:request-detail' request.id %}">Detail</a></button>
+             <button class="btn btn-outline-danger"><a href="{% url 'request:request-delete' request.id %}">Delete</a></button>
              <hr class="style5">
         {% endfor %}
 
