@@ -1,13 +1,13 @@
 from django.views.generic import ListView, DetailView
-from django.utils import timezone
-from django.core.paginator import Paginator
-from .models import Request
-from .forms import RequestForm
 from django.views.generic.edit import DeleteView
-from django.shortcuts import redirect, render
+from .models import Request
+from django.core.paginator import Paginator
+from django.shortcuts import render
 from django.core.mail import send_mail
+from django.utils import timezone
 from quickthooters import settings
-from django.contrib import messages
+from .forms import RequestForm
+
 
 
 def get_Request(request):
@@ -30,7 +30,7 @@ def get_Request(request):
 
 class RequestListHistoryView(ListView):
     model = Request
-    template_name = 'tutor_request/request-list-history.html'
+    template_name = 'tutor_request/request-list-current.html'
     context_object_name = 'requests'
     ordering = ['-date']
     paginate_by = 3
@@ -46,13 +46,14 @@ class RequestListView(ListView):
         ordering = ['-date']
         paginate_by = 3
 
-
         def post(self,request):
             subject = "QuickThooters"
-            message = "Hi " + request.user.username + ", Your tutoring request has been Accepted !"
-            to = request.user.email
+            message = "Hi " + Request.objects.get(pk=request.POST.get('id','default')).author.username + ", Your tutoring request has been Accepted !"
+            to = Request.objects.get(pk=request.POST.get('id','default')).author.email
             email = send_mail(subject, message, settings.EMAIL_HOST_USER, [to])
+            Request.objects.all().filter(pk=request.POST.get('id','default')).delete()
             return render(self.request, 'tutor_request/confirmation2.html')
+
 
 class RequestDetailView(DetailView):
     model = Request

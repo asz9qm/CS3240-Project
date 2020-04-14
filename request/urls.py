@@ -8,8 +8,8 @@ app_name = 'request'
 
 urlpatterns = [
     path('new/', views.get_Request, name='request-new'),
-    path('history/', RequestListHistoryView.as_view(), name = 'request-list-history' ),
+    path('current/', RequestListHistoryView.as_view(), name = 'request-list-current' ),
     path('', RequestListView.as_view() , name='request-list'),
-    path('history/<int:pk>/', RequestDetailView.as_view(), name='request-detail'),
-    path('history/<int:pk>/delete/', RequestDeleteView.as_view() , name='request-delete'),
+    path('current/<int:pk>/', RequestDetailView.as_view(), name='request-detail'),
+    path('current/<int:pk>/delete/', RequestDeleteView.as_view() , name='request-delete'),
 ]
