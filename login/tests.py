@@ -38,7 +38,7 @@ class LoginTestCase(TestCase):
     
     def test_one_first_year_2(self):
         fys = Profile.objects.filter(year="1")
-        self.assertTrue(fys.year=="1")
+        self.assertTrue(len(fys)==1)
     
     def test_one_first_year_3(self):
         fys = Profile.objects.filter(year="1")
@@ -124,7 +124,7 @@ class LoginTestCase(TestCase):
     
     def test_one_first_year_2(self):
         fys = Profile.objects.filter(year="1")
-        self.assertTrue(fys.year=="1")
+        self.assertTrue(len(fys)=="1")
     
     def test_one_first_year_3(self):
         fys = Profile.objects.filter(year="1")
