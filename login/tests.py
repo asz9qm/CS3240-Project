@@ -1,4 +1,7 @@
+# LOGIN TESTS
 from django.test import TestCase
+from django.test import RequestFactory, TestCase
+from .views import display_login, display_profile, make_profile, update_profile
 
 # Create your tests here.
 from login.models import Profile
@@ -36,14 +39,6 @@ class LoginTestCase(TestCase):
         fys = Profile.objects.filter(year="1")
         self.assertTrue(len(fys)==1)
     
-    def test_one_first_year_2(self):
-        fys = Profile.objects.filter(year="1")
-        self.assertTrue(len(fys)==1)
-    
-    def test_one_first_year_3(self):
-        fys = Profile.objects.filter(year="1")
-        self.assertTrue(len(fys)==1)
-    
     def test_change_major(self):
         john = Profile.objects.get(major="meche")
         john.major = "cs"
@@ -53,6 +48,11 @@ class LoginTestCase(TestCase):
         anna = Profile.objects.filter(major="english")
         anna.major="cs"
         self.assertTrue(anna.major=="cs")
+    
+    def test_change_major3(self):
+        anna = Profile.objects.filter(major="english")
+        anna.major = "english"
+        self.assertTrue(anna.major=="english")
 
     def test_number_majors(self):
         cs = Profile.objects.filter(major="cs")
@@ -65,28 +65,46 @@ class LoginTestCase(TestCase):
         Profile.objects.create(user=cs, major="cs", year="1")
         cs_students = Profile.objects.filter(major="cs")
         self.assertEquals(len(cs_students), 2)
-    
-    def test_number_majors3(self):
-        cs = User.objects.create_user(username="l33thaxor",
-                                    email="luvhacking@cs.com",
-                                    password="12345")
-        cs2 = User.objects.create_user(username="badHacker",
-                                    email="hatehacking@cs.com",
-                                    password="12345")
-        Profile.objects.create(user=cs, major="cs", year="1")
-        Profile.objects.create(user=cs2, major="cs", year="1")
-        cs_students = Profile.objects.filter(major="cs")
-        self.assertEquals(len(cs_students), 3)
-    
-    def test_number_majors4(self):
-        cs = User.objects.create_user(username="l33thaxor",
-                                    email="luvhacking@cs.com",
-                                    password="12345")
-        cs2 = User.objects.create_user(username="badHacker",
-                                    email="hatehacking@cs.com",
-                                    password="12345")
-        Profile.objects.create(user=cs, major="engl", year="1")
-        Profile.objects.create(user=cs2, major="cs", year="1")
-        cs_students = Profile.objects.filter(major="cs")
-        self.assertEquals(len(cs_students), 2)    
 
+class LoginViewsTestCase(TestCase):
+    def setUp(self):
+        # Every test needs access to the request factory.
+        self.factory = RequestFactory()
+        self.user = User.objects.create_user(
+            username='jacob', email='jacob@…', password='top_secret')
+
+    def test_login_display_get(self):
+        request = self.factory.get('/login')
+        request.user = self.user
+        response = display_login(request)
+        self.assertEqual(response.status_code, 200)
+    
+    def test_login_display_post(self):
+        request = self.factory.post('/login')
+        request.user = self.user
+        response = display_login(request)
+        self.assertEqual(response.status_code, 200)
+    
+    def test_profile_display_get(self):
+        request = self.factory.get('/profile')
+        request.user = self.user
+        response = display_profile(request)
+        self.assertEqual(response.status_code, 200)
+    
+    def test_profile_display_post(self):
+        request = self.factory.post('/profile')
+        request.user = self.user
+        response = display_profile(request)
+        self.assertEqual(response.status_code, 200)
+    
+    def test_make_profile_get(self):
+        request = self.factory.get('/profile')
+        request.user = self.user
+        response = make_profile(request)
+        self.assertEquals(response.status_code, 200)
+    
+    def test_make_profile_post(self):
+        request = self.factory.post('/profile')
+        request.user = self.user
+        response = make_profile(request)
+        self.assertEquals(response.status_code, 200)
