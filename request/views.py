@@ -7,6 +7,9 @@ from django.core.mail import send_mail
 from django.utils import timezone
 from quickthooters import settings
 from .forms import RequestForm
+from django.conf import settings
+import stripe
+from django.views.generic.base import TemplateView
 
 
 
@@ -64,6 +67,7 @@ class RequestDeleteView(DeleteView):
     model = Request
     template_name = 'tutor_request/request-delete.html'
     success_url = '/'
+
 
 
 

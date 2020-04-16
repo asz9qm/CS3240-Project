@@ -3,6 +3,12 @@
 
 {% block content %}
 <div class="alert alert-success" role="alert">
-  Thank you ! Your tutoring request has been submitted. You will receive a confirmation email soon.
+  Your tutoring request has been submitted. You will receive a confirmation email soon.
 </div>
+<form action="{% url 'charge' %}" method="post">
+  {% csrf_token %}
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="{{ 'pk_test_qBsO9bCKqvUW9ZbY5bClNx1Z00a7RfZRz2' }}"
+    data-description="(No charge until request accepted)" data-amount="250" data-locale="auto">
+    </script>
+</form>
 {% endblock %}
