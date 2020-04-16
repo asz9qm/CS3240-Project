@@ -36,6 +36,14 @@ class LoginTestCase(TestCase):
         fys = Profile.objects.filter(year="1")
         self.assertTrue(len(fys)==1)
     
+    def test_one_first_year_2(self):
+        fys = Profile.objects.filter(year="1")
+        self.assertTrue(len(fys)==1)
+    
+    def test_one_first_year_3(self):
+        fys = Profile.objects.filter(year="1")
+        self.assertTrue(len(fys)==1)
+    
     def test_change_major(self):
         john = Profile.objects.get(major="meche")
         john.major = "cs"
@@ -57,3 +65,28 @@ class LoginTestCase(TestCase):
         Profile.objects.create(user=cs, major="cs", year="1")
         cs_students = Profile.objects.filter(major="cs")
         self.assertEquals(len(cs_students), 2)
+    
+    def test_number_majors3(self):
+        cs = User.objects.create_user(username="l33thaxor",
+                                    email="luvhacking@cs.com",
+                                    password="12345")
+        cs2 = User.objects.create_user(username="badHacker",
+                                    email="hatehacking@cs.com",
+                                    password="12345")
+        Profile.objects.create(user=cs, major="cs", year="1")
+        Profile.objects.create(user=cs2, major="cs", year="1")
+        cs_students = Profile.objects.filter(major="cs")
+        self.assertEquals(len(cs_students), 3)
+    
+    def test_number_majors4(self):
+        cs = User.objects.create_user(username="l33thaxor",
+                                    email="luvhacking@cs.com",
+                                    password="12345")
+        cs2 = User.objects.create_user(username="badHacker",
+                                    email="hatehacking@cs.com",
+                                    password="12345")
+        Profile.objects.create(user=cs, major="engl", year="1")
+        Profile.objects.create(user=cs2, major="cs", year="1")
+        cs_students = Profile.objects.filter(major="cs")
+        self.assertEquals(len(cs_students), 2)    
+
