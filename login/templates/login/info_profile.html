@@ -1,7 +1,7 @@
 {% extends 'main/sidebar.html' %}
 {% load crispy_forms_tags %}
 {% block content%}
-
+{% load static %}
     
     {% if user.profile %}
         <form method="GET" action="{% url 'login:display_profile' %}">
