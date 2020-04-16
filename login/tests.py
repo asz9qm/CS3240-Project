@@ -70,8 +70,8 @@ class LoginTestCase(TestCase):
         cs = User.objects.create_user(username="l33thaxor",
                                     email="luvhacking@cs.com",
                                     password="12345")
-        cs2 = User.objects.create_user(username="l33thaxor",
-                                    email="luvhacking@cs.com",
+        cs2 = User.objects.create_user(username="badHacker",
+                                    email="hatehacking@cs.com",
                                     password="12345")
         Profile.objects.create(user=cs, major="cs", year="1")
         Profile.objects.create(user=cs2, major="cs", year="1")
@@ -82,15 +82,15 @@ class LoginTestCase(TestCase):
         cs = User.objects.create_user(username="l33thaxor",
                                     email="luvhacking@cs.com",
                                     password="12345")
-        cs2 = User.objects.create_user(username="l33thaxor",
-                                    email="luvhacking@cs.com",
+        cs2 = User.objects.create_user(username="badHacker",
+                                    email="hatehacking@cs.com",
                                     password="12345")
         Profile.objects.create(user=cs, major="engl", year="1")
         Profile.objects.create(user=cs2, major="cs", year="1")
         cs_students = Profile.objects.filter(major="cs")
         self.assertEquals(len(cs_students), 2)    
 
-class LoginTestCase2(TestCase):
+class LoginTestCase(TestCase):
     def setUp(self):
         user = User.objects.create_user(username='john',
                                  email='jlennon@beatles.com',
@@ -156,8 +156,8 @@ class LoginTestCase2(TestCase):
         cs = User.objects.create_user(username="l33thaxor",
                                     email="luvhacking@cs.com",
                                     password="12345")
-        cs2 = User.objects.create_user(username="l33thaxor",
-                                    email="luvhacking@cs.com",
+        cs2 = User.objects.create_user(username="badHacker",
+                                    email="hatehacking@cs.com",
                                     password="12345")
         Profile.objects.create(user=cs, major="cs", year="1")
         Profile.objects.create(user=cs2, major="cs", year="1")
@@ -168,8 +168,8 @@ class LoginTestCase2(TestCase):
         cs = User.objects.create_user(username="l33thaxor",
                                     email="luvhacking@cs.com",
                                     password="12345")
-        cs2 = User.objects.create_user(username="l33thaxor",
-                                    email="luvhacking@cs.com",
+        cs2 = User.objects.create_user(username="badHacker",
+                                    email="hatehacking@cs.com",
                                     password="12345")
         Profile.objects.create(user=cs, major="engl", year="1")
         Profile.objects.create(user=cs2, major="cs", year="1")
