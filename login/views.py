@@ -19,8 +19,6 @@ def make_profile(request):
         post = form.save(commit=False)
         post.user = request.user
         post.save()
-        #if form.is_valid():
-           # form.save()
         messages.success(request, f'Your account has been created !')
         return redirect('login:display_profile')
     else:

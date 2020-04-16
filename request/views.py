@@ -49,6 +49,9 @@ class RequestListView(ListView):
         ordering = ['-date']
         paginate_by = 3
 
+        def get_queryset(self):
+            return Request.objects.exclude(author=self.request.user)
+
         def post(self,request):
             subject = "QuickThooters"
             message = "Hi " + Request.objects.get(pk=request.POST.get('id','default')).author.username + ", Your tutoring request has been Accepted !"
