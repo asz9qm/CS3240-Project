@@ -3,22 +3,25 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<head>        
+
+<head>
   <title>Request</title>
-  
+
 </head>
 
 <div class="text-center">
   <h3>Tutoring Request</h3>
-  
+
   <div class="text-center">
     <form method="POST" class="post-form">
-        {% csrf_token %}
-        {{ form | crispy}}
-        <button class="btn btn-outline-info" type="submit">Submit</button>
-        <button class="btn btn-outline-danger"><a href ="{% url 'main:homepage' %}">Cancel</a></button>
+      {% csrf_token %}
+      {{ form | crispy}}
+      
+      <button class="btn btn-outline-info" type="submit">Submit</button>
+      <button class="btn btn-outline-danger"><a href="{% url 'main:homepage' %}">Cancel</a></button>
     </form>
   </div>
+
 </div>
 
 {% endblock %}
