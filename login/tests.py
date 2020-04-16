@@ -103,8 +103,3 @@ class LoginViewsTestCase(TestCase):
         response = make_profile(request)
         self.assertEquals(response.status_code, 200)
     
-    # def test_make_profile_post(self):
-    #     request = self.factory.post('/profile')
-    #     request.user = self.user
-    #     response = make_profile(request)
-    #     self.assertEquals(response.status_code, 200)
