@@ -61,15 +61,15 @@
                         <ul class="nav navbar-nav ml-auto">
                              {% if request.user.is_authenticated %}
                              <li class="nav-item">
-                                <a class="nav-link" href="{% url 'login:display_profile' %}">My Profile</a>
+                                <h6><a class="nav-link" href="{% url 'login:display_profile' %}">My Profile</a></h6>
                             </li>
                             {% else %}
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'login:display_login' %}">Login/Signup</a>
+                                    <h6><a class="nav-link" href="{% url 'login:display_login' %}">Login/Signup</a></h6>
                                 </li>
                             {% endif %}
                             <li class="nav-item">
-                                <a class="nav-link" href=#>About</a>
+                                <h6><a class="nav-link" href=#>About</a></h6>
                             </li>
                         </ul>
                     </div>
@@ -105,14 +105,14 @@
                 <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
                   <ul class="list-inline mb-2">
                     <li class="list-inline-item">
-                      <a href="#">About</a>
+                      <h6><a href="#">About</a></h6>
                     </li>
                     <li class="list-inline-item">&sdot;</li>
                     <li class="list-inline-item">
-                      <a href="#">Contact</a>
+                      <h6><a href="#">Contact</a></h6>
                     </li>
                   </ul>
-                  <p class="text-muted small mb-4 mb-lg-0">&copy; QuickThooter 2020. All Rights Reserved.</p>
+                  <p class="text-muted small mb-4 mb-lg-0">&copy; QuickThooters 2020. All Rights Reserved.</p>
                 </div>
               </div>
             </div>
