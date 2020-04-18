@@ -1,6 +1,7 @@
 {% extends 'main/sidebar.html' %}
 
 {% block content %}
+    <div align="center">
     <h2>My Requests</h2>
         <hr class="style5">
         {% for request in requests %}
@@ -20,7 +21,7 @@
 	    {% if page_obj.has_next %}
 	        <a  class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
 	    {% endif %}
-
 	 {% endif %} 
+    </div>
          
 {% endblock %}
