@@ -9,28 +9,27 @@
   
     <body name="ratings">
           <div class="jumbotron" style="background-image: url(static/main/uva.jpg) no-repeat; position: relative;">
-            <h1 class="display-4">Welcome to QuicktHOOter</h1>
-            <p class="lead">
-                Thanks for visiting this website!
-            </p>
+            <div contenteditable>
+                <h1>Welcome to Quickt<span style="color: orange">HOO</span>ters</h1>
+            </div>
+            <p class="lead">Thank you for visiting the website!</p>
             <hr class="my-4">
             {% if request.user.is_authenticated %}
                 <div class = "container">
-                    <div class = "row text-center">
+                <div class = "row text-center">
                      <div class="col-md-6">
-                     <button class="btn btn-danger btn-lg"><a href="{% url 'request:request-list' %}">Start Tutoring!</a></button>
-                </div>
+                        <button class="btn btn-dark btn-lg"><a href="{% url 'request:request-list' %}">Start Tutoring!</a></button>
+                    </div>
                     <div class="col-md-3">
-                    <button class="btn btn-primary btn-lg"><a href="{% url 'request:request-new' %}">Start Learning!</a></button>
-                </div>
+                        <button class="btn btn-warning btn-lg"><a href="{% url 'request:request-new' %}">Start Learning!</a></button>
+                    </div>
            
             {% else %}
                 <button class="btn btn-danger btn-lg"><a href="{% url 'login:display_login' %}">Login to get started!</a></button>
             {% endif %}
-    </div>
-    </div>
-
-    </div>
+                 </div>
+                </div>
+            </div>
     <!-- Icons Grid -->
   <section class="features-icons bg-light text-center">
         <div class="container">
@@ -67,10 +66,10 @@
       </section>
 
         <!-- Services -->
-  <section class="content-section bg-dark text-white text-center" id="services">
+  <section class="content-section bg-light text-white text-center" id="services">
         <div class="container">
-          <h1>What We Learn With Pleasure</h1>
-          <h2>We Never Forget</h2>
+            <h1><p class="font-italic" style="color: orange"> "What we learn with pleasure</p></h1>
+            <h1><p class="font-italic" style="color: orange">we never forget"</p></h1>
         </div>
       </section>
     <!-- Ratings -->
@@ -111,8 +110,6 @@
                                     
                                 </div>					
                             </div> <!-- End Col -->								
-                                            
-                        
                         </div>
         </div>
         

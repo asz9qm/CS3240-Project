@@ -16,9 +16,10 @@
     <form method="POST" class="post-form">
       {% csrf_token %}
       {{ form | crispy}}
-      
+      <div align="center">
       <button class="btn btn-outline-info" type="submit">Submit</button>
       <button class="btn btn-outline-danger"><a href="{% url 'main:homepage' %}">Cancel</a></button>
+    </div>
     </form>
   </div>
 

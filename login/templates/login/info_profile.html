@@ -1,8 +1,8 @@
 {% extends 'main/sidebar.html' %}
 {% load crispy_forms_tags %}
 {% block content%}
-{% load static %}
-    
+
+    <div align="center">
     {% if user.profile %}
         <form method="GET" action="{% url 'login:display_profile' %}">
         {% csrf_token %}
@@ -14,15 +14,15 @@
              <p class="card-text">Year: {{ user.profile.year }}</p>
         </div>
         </form>
+
         <button class="btn btn-outline-primary" type="submit"><a href="{% url 'login:update_profile' %}">Update Profile</a></button>
     {% else %}
         <h5 class="card-title">Name: {{ user.first_name }}  {{ user.last_name }}</h5>
         <p class="card-text">Email: {{ user.email }}</p>
         <button class="btn btn-outline-primary" type="submit"><a href="{% url 'login:make_profile' %}">Create Full Profile</a></button>
     {% endif %}
-    <br>
-    <br>
-    <button class="btn btn-outline-danger" type="submit"><a href="{% url 'account_logout' %}">Logout?</a></button>
+        <button class="btn btn-outline-danger" type="submit"><a href="{% url 'account_logout' %}">Logout?</a></button>
+</div>
 
 {% endblock %}
 
