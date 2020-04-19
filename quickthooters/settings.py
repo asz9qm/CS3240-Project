@@ -169,7 +169,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'login/static'),
     os.path.join(BASE_DIR, 'main/static'),
-    os.path.join(BASE_DIR, 'main/main')
+    os.path.join(BASE_DIR, 'main/static/main'),
 ]
 
 # Django all auth settings
