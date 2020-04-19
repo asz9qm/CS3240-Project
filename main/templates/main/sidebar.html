@@ -61,6 +61,9 @@
                         <ul class="nav navbar-nav ml-auto">
                              {% if request.user.is_authenticated %}
                              <li class="nav-item">
+                                <h6><a class="nav-link" href="{% url 'main:homepage' %}">Home</a></h6>
+                            </li>
+                             <li class="nav-item">
                                 <h6><a class="nav-link" href="{% url 'login:display_profile' %}">My Profile</a></h6>
                             </li>
                             {% else %}

@@ -8,18 +8,18 @@
              <h4>Subject: {{ request.subject }}</h4>
              <h5>Location: {{ request.location }}</h5>
              <p>Date: {{ request.date }}</p>
-             <button class="btn btn-outline-primary"><a href="{% url 'request:request-detail' request.id %}">Detail</a></button>
+             <button class="btn btn-outline-info"><a href="{% url 'request:request-detail' request.id %}">Detail</a></button>
              <button class="btn btn-outline-danger"><a href="{% url 'request:request-delete' request.id %}">Delete</a></button>
              <hr class="style5">
         {% endfor %}
 
 	 {% if is_paginated %}
 	    {% if page_obj.has_previous %}
-	        <a  class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number}}">Previous</a>
+	        <a  class="btn btn-outline-primary mb-4" href="?page={{ page_obj.previous_page_number}}">Previous</a>
 	    {% endif %}
 
 	    {% if page_obj.has_next %}
-	        <a  class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+	        <a  class="btn btn-outline-primary mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
 	    {% endif %}
 	 {% endif %} 
     </div>

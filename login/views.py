@@ -19,7 +19,6 @@ def make_profile(request):
         post = form.save(commit=False)
         post.user = request.user
         post.save()
-        messages.success(request, f'Your account has been created !')
         return redirect('login:display_profile')
     else:
         form = UserProfileForm({'user': request.user})
@@ -40,9 +39,7 @@ def update_profile(request):
         p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
         if p_form.is_valid():
             p_form.save()
-            messages.success(request, f'Your account has been updated !')
             return redirect('login:display_profile')
-
     else:
         p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
         
