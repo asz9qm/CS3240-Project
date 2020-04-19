@@ -4,7 +4,7 @@
 
 {% block content %}
       <div align="center">
-    <h2>All Available Requests</h2>
+    <h2>Available Request(s)</h2>
     <hr class="style5">
     {% for request in requests %}
             <form method="post">
@@ -13,7 +13,7 @@
                     <h5>Location: {{ request.location }}</h5>
                     <p>Specific: {{ request.specific }}</p>
                     <input type="hidden" name="id" value="{{ request.id }}">
-                    <button class="btn btn-outline-primary" type="submit" value='POST'>Accept</button> 
+                    <button class="btn btn-outline-info" type="submit" value='POST'>Accept</button> 
             </form>
             <hr class="style5">
     {% endfor %}
@@ -21,11 +21,11 @@
       
         {% if is_paginated %}
             {% if page_obj.has_previous %}
-                <a  class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                <a  class="btn btn-outline-primary mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
             {% endif %}
 
             {% if page_obj.has_next %}
-                <a  class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+                <a  class="btn btn-outline-primary mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
             {% endif %}
          {% endif %} 
          </div> 
