@@ -9,7 +9,7 @@ LOC_CHOICES = (
     ('Clark Hall','Clark Hall'),
     ('Clemons Library','Clemons Library'),
     ('Rice Hall','Rice Hall'),
-    ('Thorton Stacks','Thorton Stacks'),
+    ('Thornton Stacks','Thornton Stacks'),
 )
 
 
@@ -20,7 +20,7 @@ SUBJECTS = (
     ('Biological Science','Biological Science'),
     ('Chemical Engineering','Chemical Engineering'),
     ('Chemistry','Chemistry'),
-    ('Computer Sience & Information Systems','Computer Sience & Information Systems'),
+    ('Computer Science & Information Systems','Computer Science & Information Systems'),
     ('Economics','Economics'),
     ('Electrical Engineering','Electrical Engineering'),
     ('Environmental Science','Environmental Science'),
@@ -29,7 +29,7 @@ SUBJECTS = (
     ('Law','Law'),
     ('Material Science','Material Science'),
     ('Mathematics','Mathematics'),
-    ('Medecine','Medecine'),
+    ('Medicine','Medicine'),
     ('Modern Languages','Modern Languages'),
     ('Nursing','Nursing'),
     ('Philosophy','Philosophy'),
