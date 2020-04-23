@@ -18,19 +18,20 @@ from django.views.generic.base import TemplateView
 def get_Request(request):
     if request.method == "POST":
         form = RequestForm(request.POST)
-        post = form.save(commit=False)
-        post.author = request.user
-        post.save()
-        subject = "QuickThooters"
-        message = "Hi " + request.user.username + ", \n\nYour tutoring request has been submitted ! \n\n\nYou will receive a confirmation Email when a tutor accepts your request.\n\n\n\nThank you !\n\n\n\n\nQuickthooters Team"
-        to = request.user.email
-        email = send_mail(subject, message, settings.EMAIL_HOST_USER, [to])
-
-        return render(request,'tutor_request/confirmation1.html')
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            subject = "QuickThooters"
+            message = "Hi " + request.user.username + ", \n\nYour tutoring request has been submitted ! \n\n\nYou will receive a confirmation Email when a tutor accepts your request.\n\n\n\nThank you !\n\n\n\n\nQuickthooters Team"
+            to = request.user.email
+            email = send_mail(subject, message, settings.EMAIL_HOST_USER, [to])
+            return render(request,'tutor_request/confirmation1.html')
         
     else:
         form = RequestForm({'author':request.user})
-        return render(request, 'tutor_request/request-new.html', {'form': form})
+
+    return render(request, 'tutor_request/request-new.html', {'form': form})
 
 
 class RequestListHistoryView(LoginRequiredMixin, ListView):

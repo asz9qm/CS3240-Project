@@ -1,6 +1,9 @@
 {% extends 'main/sidebar.html' %}
 {% load crispy_forms_tags %}
 {% block content%}
+<head>
+    <title>Profile</title>
+</head>
 
     <div align="center">
     {% if user.profile %}
@@ -15,11 +18,11 @@
         </div>
         </form>
 
-        <button class="btn btn-outline-primary" type="submit"><a href="{% url 'login:update_profile' %}">Update Profile</a></button>
+        <button class="btn btn-outline-info" type="submit"><a href="{% url 'login:update_profile' %}">Update Profile</a></button>
     {% else %}
         <h5 class="card-title">Name: {{ user.first_name }}  {{ user.last_name }}</h5>
         <p class="card-text">Email: {{ user.email }}</p>
-        <button class="btn btn-outline-primary" type="submit"><a href="{% url 'login:make_profile' %}">Create Full Profile</a></button>
+        <button class="btn btn-outline-info" type="submit"><a href="{% url 'login:make_profile' %}">Create Full Profile</a></button>
     {% endif %}
         <button class="btn btn-outline-danger" type="submit"><a href="{% url 'account_logout' %}">Logout?</a></button>
 </div>

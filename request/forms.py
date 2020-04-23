@@ -5,4 +5,3 @@ class RequestForm(forms.ModelForm):
     class Meta:
         model = Request
         fields = ('subject', 'location', 'specific')
-     

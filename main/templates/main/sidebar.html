@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Quick Thooter</title>
+    
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -60,6 +60,9 @@
                         <a class="navbar-brand" href="/"><i class="fas fa-chalkboard-teacher fa-2x"></i></a>
                         <ul class="nav navbar-nav ml-auto">
                              {% if request.user.is_authenticated %}
+                             <li class="nav-item">
+                                <h6><a class="nav-link" href="{% url 'main:homepage' %}">Home</a></h6>
+                            </li>
                              <li class="nav-item">
                                 <h6><a class="nav-link" href="{% url 'login:display_profile' %}">My Profile</a></h6>
                             </li>
