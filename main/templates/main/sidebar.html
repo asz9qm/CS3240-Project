@@ -28,7 +28,11 @@
         <!-- Sidebar Holder -->
         <nav id="sidebar">
             <div class="sidebar-header">
+                {% if request.user.profile %}
                   <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" height="150" width="150">
+                {% else %}
+                    <img class="rounded-circle account-img" src="{% static '/main/unknown.png' %}" height="150" width="150">
+                {% endif %}
                 <h2>{{ user.first_name }}</h2>
             </div>
 
