@@ -16,15 +16,15 @@ def display_login(request):
 def make_profile(request):
     if request.method == "POST":
         form = UserProfileForm(request.POST)
-        post = form.save(commit=False)
-        post.user = request.user
-        post.save()
-        return redirect('login:display_profile')
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = request.user
+            post.save()
+            return redirect('login:display_profile')
     else:
         form = UserProfileForm({'user': request.user})
 
-    context = {'profile_form': form}
-    return render(request, 'login/blank_profile.html', context)
+    return render(request, 'login/blank_profile.html', {'profile_form': form})
 
 
 @login_required
