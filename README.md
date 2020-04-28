@@ -1,4 +1,5 @@
 ### quicktHOOters 
+Welcome to QuicktHOOter, a web application specific to the University of Virginia that serves as an "Uber for Tutors." Upon logging in with a Google account, students can submit a request for a subject or problem they need help with, include their location and any other relevant information. Tutors, once logged in, can browse requests and select any they deem relevant to their skillset. Confirmation emails will be sent to both parties. 
 ## You can view this application on our [Heroku Site](https://quick-thooters.herokuapp.com).
 
 ### Basic Use
