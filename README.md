@@ -15,7 +15,7 @@ Return to the home page by clicking on the icon of the student and computer in t
 ## Accept a Request
 Click on the “Start Tutoring” button to accept a tutoring request; the user who submitted this request will receive a confirmation email that their request was accepted.
 
-## Licensing
+# Licensing
 ### Django
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
